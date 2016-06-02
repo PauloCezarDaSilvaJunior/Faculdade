@@ -25,9 +25,9 @@
 	<TableView fx:id="tabela" id="tabelaEmprestimo" GridPane.rowIndex="2" 
 		GridPane.columnIndex="0" GridPane.columnSpan="2" editable="false" >
 		<columns>
-			<TableColumn fx:id="amiguinho" text="Amiguinho" minWidth="160" >
+			<TableColumn fx:id="amiguinho" text="Amiguinho" minWidth="158" >
 			</TableColumn>
-			<TableColumn fx:id="revista" text="Revista" minWidth="152">
+			<TableColumn fx:id="revista" text="Revista" minWidth="150">
 			</TableColumn>
 			<TableColumn fx:id="status" text="Status" minWidth="80">
 			</TableColumn>

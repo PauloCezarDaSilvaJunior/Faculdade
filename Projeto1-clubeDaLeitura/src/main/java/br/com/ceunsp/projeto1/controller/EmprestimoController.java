@@ -61,11 +61,13 @@ public class EmprestimoController {
 				if (dao.AmiguinhotemPendincias(cbAmiguinho.getValue().getId())) {
 					AlertHelper.InfoAlert("Ops! Parece que tem pendencias",
 							"O Amiguinho tem pendencia! não é possivel fazer emprestimo");
+					emprestimo = null;
 					return;
 				}
 				if (dao.RevistatemPendincias(cbRevista.getValue().getId())) {
 					AlertHelper.InfoAlert("Ops! Parece que tem pendencias",
 							"Essa Revista não está disponivel no momento!");
+					emprestimo = null;
 					return;
 				}
 
@@ -91,6 +93,7 @@ public class EmprestimoController {
 				emprestimo.setRevista(cbRevista.getValue());
 
 				dao.merge(emprestimo);
+				emprestimo = null;
 			}
 			// editar emprestimo
 			else {
