@@ -25,16 +25,15 @@
 		GridPane.columnSpan="2" promptText="Pesquisar" />
 
 	<TableView fx:id="tabela" id="tabelaamiguinho"
-		GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"
-		editable="false">
+		GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2">
 		<columns>
-			<TableColumn fx:id="nome" text="Nome">
+			<TableColumn fx:id="nome" text="Nome" minWidth="150">
 			</TableColumn>
-			<TableColumn fx:id="nomeMae" text="Nome da Mãe">
+			<TableColumn fx:id="nomeMae" text="Nome da Mãe" minWidth="150">
 			</TableColumn>
-			<TableColumn fx:id="telefone" text="Telefone">
+			<TableColumn fx:id="telefone" text="Telefone" minWidth="110">
 			</TableColumn>
-			<TableColumn fx:id="local" text="Local">
+			<TableColumn fx:id="local" text="Local" minWidth="90">
 			</TableColumn>
 		</columns>
 	</TableView>

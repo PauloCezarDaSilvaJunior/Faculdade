@@ -3,18 +3,51 @@
 	-fx-background-color: #fff;
 }
 #tabela{
-	-fx-min-width: 450px;
+	-fx-min-width: 450.0px;
 }
 #tabelaEmprestimo{
-	-fx-min-width: 650px;
+	-fx-min-width: 750.0px;
 }
 #tabelaDevolucao{
-	-fx-min-width: 550px;
-	-fx-min-height: 250px;
+	-fx-min-width: 650.0px;
+	-fx-min-height: 250.0px;
+}
+.table-view .label{
+    -fx-text-fill: #fff;
+    -fx-alignment: center ;
+}
+.table-view .column-header {
+    -fx-background-color: #A52A2A;
+}
+.table-view .column-header-background {
+     -fx-background-color: #A52A2A;
+}
+.table-view .column-header-background .filler {
+     -fx-background-color: #A52A2A;
+}
+
+.table-view .table-cell{
+    -fx-text-alignment: center;
+}
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #FFFAFA;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #FFEBCD;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */  
+}
+.table-row-cell:selected {
+    -fx-background-color: #A52A2A;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
 }
 #titulo{
-	-fx-padding: 0px,0px,0px,0px;
-	-fx-font-size: 26px; 
+	-fx-padding: 0.0px,0.0px,0.0px,0.0px;
+	-fx-font-size: 26.0px; 
 	-fx-font-family: "Arial Black"; 
 	-fx-alignment: center ;
 	-fx-text-fill: #990000;
@@ -23,10 +56,10 @@
 .button{
 	-fx-text-fill: white;
 	-fx-font-weight: bold;
-	-fx-font-size: 20px;
+	-fx-font-size: 20.0px;
 	-fx-background-color: #800000;
-	-fx-min-width: 300px;
-	-fx-min-height: 40px;
+	-fx-min-width: 300.0px;
+	-fx-min-height: 40.0px;
 }
 .button:hover{
 	-fx-background-color: #cc0000;
@@ -34,27 +67,37 @@
 #btnCrud{
 	-fx-text-fill: white;
 	-fx-font-weight: bold;
-	-fx-font-size: 20px;
-	-fx-background-color: #800000;
-	-fx-min-width: 120px;
-	-fx-min-height: 60px;
-    -fx-border-insets: 10px;
-    -fx-background-insets: 10px;
+	-fx-font-size: 20.0px;
+	-fx-background-color: #A52A2A;
+	-fx-min-width: 120.0px;
+	-fx-min-height: 60.0px;
+    -fx-border-insets: 10.0px;
+    -fx-background-insets: 10.0px;
 	
+}
+#btnCrudEmprestimo{
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+	-fx-font-size: 20.0px;
+	-fx-background-color: #A52A2A;
+	-fx-min-width: 148.0px;
+	-fx-min-height: 60.0px;
+    -fx-border-insets: 10.0px;
+    -fx-background-insets: 10.0px;
 }
 #btnCrud:hover{
 	-fx-background-color: #cc0000;
 	
 }
 .label{
-	-fx-font-size: 12px; 
+	-fx-font-size: 12.0px; 
 	-fx-font-weight: bold; 
 	-fx-text-fill: #333333;
 }
 /*cadastro amiguinho */
 #radio{
-	-fx-padding: 10px;
-	-fx-font-size: 12px; 
+	-fx-padding: 10.0px;
+	-fx-font-size: 12.0px; 
 	-fx-font-weight: bold; 
 	-fx-text-fill: #333333;
 }
@@ -64,28 +107,28 @@
 /*todos os cadastros*/
 /*amiguinho css */
 #tabelaamiguinho{
-	-fx-min-width: 340px;
+	-fx-min-width: 340.0px;
 }
 /*revista */
 #tabelarevista{
-	-fx-min-width: 170px;
+	-fx-min-width: 170.0px;
 }/*revista/caixa */
 #tabela{
-	-fx-min-width: 450px;
+	-fx-min-width: 450.0px;
 	-fx-border-color: #990000;
 }
 /*revista*/
 #colecao{
-	-fx-pref-width: 280px;
+	-fx-pref-width: 280.0px;
 }
 /*caixa */
 #caixacaixa{
-	-fx-pref-width: 180px;
+	-fx-pref-width: 180.0px;
 }
 /*Tela principal */
 #menubar{
 	-fx-background-color: #f4f4f4;
-	-fx-font-size: 10px;
+	-fx-font-size: 10.0px;
 	-fx-alignment: center ;
 }
 .menu:hover{

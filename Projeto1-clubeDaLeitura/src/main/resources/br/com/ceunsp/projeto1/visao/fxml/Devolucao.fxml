@@ -31,15 +31,17 @@
 		GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"
 		editable="false">
 		<columns>
-			<TableColumn fx:id="amiguinho" text="Amiguinho">
+			<TableColumn fx:id="amiguinho" text="Amiguinho" minWidth="161">
 			</TableColumn>
-			<TableColumn fx:id="revista" text="Revista">
+			<TableColumn fx:id="revista" text="Revista" minWidth="161">
 			</TableColumn>
-			<TableColumn fx:id="status" text="Status">
+			<TableColumn fx:id="status" text="Status" minWidth="80">
 			</TableColumn>
-			<TableColumn fx:id="dtEmprestimo" text="Data de emprestimo">
+			<TableColumn fx:id="dtEmprestimo" text="Data de emprestimo"
+				minWidth="125">
 			</TableColumn>
-			<TableColumn fx:id="dtDevolucao" text="devolução prevista">
+			<TableColumn fx:id="dtDevolucao" text="devolução prevista"
+				minWidth="120">
 			</TableColumn>
 		</columns>
 	</TableView>

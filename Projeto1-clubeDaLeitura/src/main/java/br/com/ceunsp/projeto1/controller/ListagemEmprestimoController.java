@@ -1,5 +1,6 @@
 package br.com.ceunsp.projeto1.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -123,20 +124,20 @@ public class ListagemEmprestimoController {
 
 		try {
 			TabelaEmprestimo emprestimoTb = tabela.getSelectionModel().getSelectedItem();
-			
-			if(emprestimoTb == null){
+
+			if (emprestimoTb == null) {
 				AlertHelper.ErrorAlert("Não selecionado", "Selecione um emprestimo para devolver! ");
 				return;
 			}
-			
+
 			EmprestimoDAO dao = new EmprestimoDAO();
 			Emprestimo emprestimo = dao.findById(emprestimoTb.getId());
-			
-			if(emprestimo.getEntregue()){
+
+			if (emprestimo.getEntregue()) {
 				AlertHelper.InfoAlert("Já entregue", "Essa revistinha já foi entregue!");
 				return;
 			}
-			
+
 			emprestimo.setEntregue(true);
 
 			// data final da devolução
@@ -154,6 +155,7 @@ public class ListagemEmprestimoController {
 		}
 
 	}
+
 	public List<Emprestimo> getEmprestimos() {
 		try {
 			EmprestimoDAO dao = new EmprestimoDAO();
@@ -178,12 +180,17 @@ public class ListagemEmprestimoController {
 			if (emprestimo.getDataDevolucaoFinal() == null) {
 				dtDevolucaoFinal = "pendende";
 			} else {
-				dtDevolucaoFinal = emprestimo.getDataDevolucaoFinal().toString();
+				SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
+				dtDevolucaoFinal = data.format(emprestimo.getDataDevolucaoFinal());
 			}
+
+			SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
+			String dtEmprestimo = data.format(emprestimo.getDataEmprestimo());
+			String dtDevolucao = data.format(emprestimo.getDataDevolucao());
+
 			TabelaEmprestimo tabelaRevistas = new TabelaEmprestimo(emprestimo.getId(),
-					emprestimo.getAmiguinho().getNome(), emprestimo.getRevista().getColecao(),
-					emprestimo.getDataEmprestimo().toString(), emprestimo.getDataDevolucao().toString(),
-					dtDevolucaoFinal, status);
+					emprestimo.getAmiguinho().getNome(), emprestimo.getRevista().getColecao(), dtEmprestimo,
+					dtDevolucao, dtDevolucaoFinal, status);
 			list.add(tabelaRevistas);
 		}
 

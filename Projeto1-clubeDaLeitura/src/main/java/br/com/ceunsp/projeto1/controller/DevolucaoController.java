@@ -1,5 +1,6 @@
 package br.com.ceunsp.projeto1.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -46,12 +47,11 @@ public class DevolucaoController {
 
 		try {
 			TabelaEmprestimo emprestimoTb = tabela.getSelectionModel().getSelectedItem();
-			
-			if(emprestimoTb == null){
+
+			if (emprestimoTb == null) {
 				AlertHelper.ErrorAlert("Não selecionado", "Selecione um emprestimo para devolver! ");
 				return;
 			}
-
 
 			EmprestimoDAO dao = new EmprestimoDAO();
 			Emprestimo emprestimo = dao.findById(emprestimoTb.getId());
@@ -100,9 +100,13 @@ public class DevolucaoController {
 				status = "Pendente";
 			}
 
+			SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
+			String dtEmprestimo = data.format(emprestimo.getDataEmprestimo());
+			String dtDevolucao = data.format(emprestimo.getDataDevolucao());
+
 			TabelaEmprestimo tabelaRevistas = new TabelaEmprestimo(emprestimo.getId(),
-					emprestimo.getAmiguinho().getNome(), emprestimo.getRevista().getColecao(),
-					emprestimo.getDataEmprestimo().toString(), emprestimo.getDataDevolucao().toString(), null, status);
+					emprestimo.getAmiguinho().getNome(), emprestimo.getRevista().getColecao(), dtEmprestimo,
+					dtDevolucao, null, status);
 			list.add(tabelaRevistas);
 		}
 
@@ -113,42 +117,44 @@ public class DevolucaoController {
 		dtDevolucao.setCellValueFactory(new PropertyValueFactory<TabelaEmprestimo, String>("dtDevolucao"));
 
 		status.setCellValueFactory(new PropertyValueFactory<TabelaEmprestimo, String>("Status"));
-		
+
 		tabela.setItems(list);
 		filtrarDados(tabela);
 	}
-	
-	public void filtrarDados(TableView<TabelaEmprestimo> tabela){
-		  // 1. Wrap the ObservableList in a FilteredList (initially display all data).
-      FilteredList<TabelaEmprestimo> filteredData = new FilteredList<>(list, p -> true);
 
-      // 2. Set the filter Predicate whenever the filter changes.
-      tfPesquisar.textProperty().addListener((observable, oldValue, newValue) -> {
-          filteredData.setPredicate(emprestimo -> {
-              // If filter text is empty, display all persons.
-              if (newValue == null || newValue.isEmpty()) {
-                  return true;
-              }
+	public void filtrarDados(TableView<TabelaEmprestimo> tabela) {
+		// 1. Wrap the ObservableList in a FilteredList (initially display all
+		// data).
+		FilteredList<TabelaEmprestimo> filteredData = new FilteredList<>(list, p -> true);
 
-              // Compare first name and last name of every person with filter text.
-              String lowerCaseFilter = newValue.toLowerCase();
+		// 2. Set the filter Predicate whenever the filter changes.
+		tfPesquisar.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(emprestimo -> {
+				// If filter text is empty, display all persons.
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
 
-              if (emprestimo.getRevista().toLowerCase().contains(lowerCaseFilter)) {
-                  return true; // Filter matches first name.
-              } else if(emprestimo.getAmiguinho().toLowerCase().contains(lowerCaseFilter)){
-            	  return true;
-              }
-              return false; // Does not match.
-          });
-      });
+				// Compare first name and last name of every person with filter
+				// text.
+				String lowerCaseFilter = newValue.toLowerCase();
 
-      // 3. Wrap the FilteredList in a SortedList. 
-      SortedList<TabelaEmprestimo> sortedData = new SortedList<>(filteredData);
+				if (emprestimo.getRevista().toLowerCase().contains(lowerCaseFilter)) {
+					return true; // Filter matches first name.
+				} else if (emprestimo.getAmiguinho().toLowerCase().contains(lowerCaseFilter)) {
+					return true;
+				}
+				return false; // Does not match.
+			});
+		});
 
-      // 4. Bind the SortedList comparator to the TableView comparator.
-      sortedData.comparatorProperty().bind(tabela.comparatorProperty());
+		// 3. Wrap the FilteredList in a SortedList.
+		SortedList<TabelaEmprestimo> sortedData = new SortedList<>(filteredData);
 
-      // 5. Add sorted (and filtered) data to the table.
-      tabela.setItems(sortedData);
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		sortedData.comparatorProperty().bind(tabela.comparatorProperty());
+
+		// 5. Add sorted (and filtered) data to the table.
+		tabela.setItems(sortedData);
 	}
 }

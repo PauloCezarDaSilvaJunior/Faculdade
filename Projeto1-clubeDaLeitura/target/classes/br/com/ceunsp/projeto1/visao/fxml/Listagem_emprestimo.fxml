@@ -25,29 +25,29 @@
 	<TableView fx:id="tabela" id="tabelaEmprestimo" GridPane.rowIndex="2" 
 		GridPane.columnIndex="0" GridPane.columnSpan="2" editable="false" >
 		<columns>
-			<TableColumn fx:id="amiguinho" text="Amiguinho">
+			<TableColumn fx:id="amiguinho" text="Amiguinho" minWidth="160" >
 			</TableColumn>
-			<TableColumn fx:id="revista" text="Revista">
+			<TableColumn fx:id="revista" text="Revista" minWidth="152">
 			</TableColumn>
-			<TableColumn fx:id="status" text="Status">
+			<TableColumn fx:id="status" text="Status" minWidth="80">
 			</TableColumn>
-			<TableColumn fx:id="dtEmprestimo" text="Data de emprestimo">
+			<TableColumn fx:id="dtEmprestimo" text="Data de emprestimo" minWidth="120">
 			</TableColumn>
-			<TableColumn fx:id="dtDevolucao" text="devolução prevista">
+			<TableColumn fx:id="dtDevolucao" text="devolução prevista" minWidth="125">
 			</TableColumn>
 			
-			<TableColumn fx:id="dtDevolucaoFinal" text="devolução final">
+			<TableColumn fx:id="dtDevolucaoFinal" text="devolução final" minWidth="110">
 			</TableColumn>
 		</columns>
 	</TableView>
 	<HBox  id="button" alignment="bottom_center" GridPane.columnIndex="0"
 		GridPane.rowIndex="4">
 		
-		<Button onAction="#novo" id="btnCrud" text="Novo"/>
-		<Button onAction="#editar" id="btnCrud" text="Editar" />
-		<Button onAction="#excluir" id="btnCrud" text="Excluir" />
-		<Button onAction="#atualizar" id="btnCrud" text="Atualizar" />
-		<Button onAction="#devolver" id="btnCrud" text="Devolver" />
+		<Button onAction="#novo" id="btnCrudEmprestimo" text="Novo"/>
+		<Button onAction="#editar" id="btnCrudEmprestimo" text="Editar" />
+		<Button onAction="#excluir" id="btnCrudEmprestimo" text="Excluir" />
+		<Button onAction="#atualizar" id="btnCrudEmprestimo" text="Atualizar" />
+		<Button onAction="#devolver" id="btnCrudEmprestimo" text="Devolver" />
 	</HBox>
 </GridPane>
 

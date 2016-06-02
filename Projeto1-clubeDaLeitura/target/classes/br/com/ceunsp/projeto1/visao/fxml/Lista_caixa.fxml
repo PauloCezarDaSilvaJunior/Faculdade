@@ -26,13 +26,13 @@
 		GridPane.columnSpan="2" promptText="Pesquisar" />
 
 	<TableView fx:id="tabela" id="tabela" GridPane.rowIndex="2"
-		GridPane.columnIndex="0" GridPane.columnSpan="2" editable="false">
+		GridPane.columnIndex="0" GridPane.columnSpan="2">
 		<columns>
-			<TableColumn fx:id="numero" text="Numero">
+			<TableColumn fx:id="numero" text="Numero" minWidth="80">
 			</TableColumn>
-			<TableColumn fx:id="cor" text="Cor" id="caixacaixa">
+			<TableColumn fx:id="cor" text="Cor" minWidth="200">
 			</TableColumn>
-			<TableColumn fx:id="etiqueta" text="Etiqueta" id="caixacaixa">
+			<TableColumn fx:id="etiqueta" text="Etiqueta" minWidth="200">
 			</TableColumn>
 		</columns>
 	</TableView>
